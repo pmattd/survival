@@ -1,7 +1,5 @@
 package core.area;
 
-import static com.google.common.collect.Lists.newArrayList;
-
 import core.area.supplies.SupplyCache;
 import core.area.travel.ArrivalAction;
 import core.area.travel.Direction;
@@ -39,13 +37,13 @@ public class TemporaryLocation implements Location {
 
 	@Override
 	public OptionList<ExecutableOption> getTravelOptions() {
-		return OptionList.emptyList();
+		return OptionList.empty();
 	}
 
 	@Override
 	public OptionList<ExecutableOption> getScavengeOptions() {
 
-		return OptionList.emptyList();
+		return OptionList.empty();
 	}
 
 
@@ -56,6 +54,6 @@ public class TemporaryLocation implements Location {
 
 	@Override
 	public OptionList<ExecutableOption> getRelocationOptions() {
-		return OptionList.emptyList();
+		return OptionList.empty();
 	}
 }

@@ -2,37 +2,27 @@ package main.providers;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
-import core.area.CurrentLocation;
+import com.google.inject.Singleton;
+import core.area.Area;
 import core.area.GameMap;
-import core.config.builder.ConfigBuildException;
 import core.config.builder.AreaFactory;
+import core.config.builder.ConfigBuildException;
 import core.config.xml.Configuration;
 import core.config.xml.areas.AreaConfig;
-import core.area.Area;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * Created by Pete on 06/06/2016.
  */
-
+@Singleton
 public class GameMapProvider implements Provider<GameMap> {
 
-    private final Configuration configuration;
-    private final AreaFactory areaFactory;
-    private CurrentLocation currentLocation;
+    private final GameMap gameMap;
     Logger logger = LoggerFactory.getLogger(GameMapProvider.class);
 
-
     @Inject
-    public GameMapProvider(Configuration configuration, AreaFactory areaFactory, CurrentLocation currentLocation) {
-        this.configuration = configuration;
-        this.areaFactory = areaFactory;
-        this.currentLocation = currentLocation;
-    }
-
-    @Override
-    public GameMap get() {
+    public GameMapProvider(Configuration configuration, AreaFactory areaFactory) {
 
         AreaConfig startLocation = configuration.getAreaMapConfig().getLocationStart();
         if(startLocation == null){
@@ -42,8 +32,12 @@ public class GameMapProvider implements Provider<GameMap> {
         }
 
         Area area = areaFactory.build(startLocation);
-        //currentLocation.setLocation(area.getArrivalLocation());
 
-        return new GameMap(area);
+        gameMap = new GameMap(area);
+    }
+
+    @Override
+    public GameMap get() {
+        return gameMap;
     }
 }

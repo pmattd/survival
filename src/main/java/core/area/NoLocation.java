@@ -5,10 +5,6 @@ import core.area.travel.ArrivalAction;
 import core.boundary.options.ExecutableOption;
 import core.boundary.options.OptionList;
 
-import java.util.Collections;
-
-import static com.google.common.collect.Lists.newArrayList;
-
 /**
  * Created by Pete on 29/07/2016.
  */
@@ -30,12 +26,12 @@ public class NoLocation implements Location {
 
     @Override
     public OptionList<ExecutableOption> getTravelOptions() {
-        return OptionList.emptyList();
+        return OptionList.empty();
     }
 
     @Override
     public OptionList<ExecutableOption> getScavengeOptions() {
-        return OptionList.emptyList();
+        return OptionList.empty();
     }
 
     @Override
@@ -45,6 +41,6 @@ public class NoLocation implements Location {
 
     @Override
     public OptionList<ExecutableOption> getRelocationOptions() {
-        return OptionList.emptyList();
+        return OptionList.empty();
     }
 }

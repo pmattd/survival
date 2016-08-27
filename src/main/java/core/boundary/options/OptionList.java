@@ -12,13 +12,21 @@ public class OptionList<T extends DisplayableOption> {
 	private Optional<String> header;
 	private List<T> options;
 
-	public OptionList(String header, List<T> options){
+	public OptionList(List<T> options) {
 		this.options = options;
+		//todo optional of nullable is a bit shit
+		this.header = Optional.empty();
+	}
+
+
+	public OptionList(String header, List<T> options) {
+		this.options = options;
+		//todo optional of nullable is a bit shit
 		this.header = Optional.of(header);
 	}
 
-	public static OptionList emptyList(){
-		return new OptionList("",newArrayList());
+	public static OptionList empty() {
+		return new OptionList(newArrayList());
 	}
 
 	public Optional<String> getHeader() {
@@ -41,11 +49,10 @@ public class OptionList<T extends DisplayableOption> {
 
 		public Builder(){
 			this.executableOptionList = newArrayList();
-			this.header = "";
 		}
 
 		public OptionList<ExecutableOption> build(){
-			return new OptionList<>(header, executableOptionList);
+			return new OptionList<>(executableOptionList);
 		}
 
 		public Builder withHeader(String header){

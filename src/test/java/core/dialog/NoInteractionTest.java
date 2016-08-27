@@ -10,7 +10,7 @@ import static org.fest.assertions.Assertions.assertThat;
  */
 public class NoInteractionTest {
 
-    NoInteraction noInteraction;
+    private NoInteraction noInteraction;
 
     @Before
     public void setup(){
@@ -19,8 +19,7 @@ public class NoInteractionTest {
 
     @Test
     public void testGetOptions() throws Exception {
-        assertThat(noInteraction.getInteractionOptions().getOptions()).isEmpty();
-        assertThat(noInteraction.getInteractionOptions().getHeader().isPresent()).isFalse();
+        assertThat(noInteraction.getInteractionOptions().getOptions()).hasSize(0);
     }
 
     @Test

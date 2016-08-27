@@ -1,9 +1,6 @@
 package core.dialog;
 
-import static com.google.common.collect.Lists.newArrayList;
-
 import com.google.inject.Singleton;
-
 import core.boundary.options.ExecutableOption;
 import core.boundary.options.OptionList;
 
@@ -14,7 +11,7 @@ import core.boundary.options.OptionList;
 public class NoInteraction implements Interaction {
 
     public OptionList<ExecutableOption> getInteractionOptions() {
-        return new OptionList<>("", newArrayList());
+        return OptionList.empty();
     }
 
     public boolean isFinal() {
