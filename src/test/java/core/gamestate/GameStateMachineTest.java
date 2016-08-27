@@ -1,7 +1,6 @@
 package core.gamestate;
 
-import static org.fest.assertions.Assertions.assertThat;
-
+import core.gamestate.states.InitialiseState;
 import core.gamestate.states.StartState;
 import org.junit.Before;
 import org.mockito.Mock;
@@ -12,15 +11,16 @@ import org.mockito.MockitoAnnotations;
  */
 public class GameStateMachineTest {
 
-    GameStateMachine gameStateMachine;
-
+    @Mock
+    InitialiseState initialiseState;
     @Mock
     StartState startState;
+    private GameStateMachine gameStateMachine;
 
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
-        gameStateMachine = new GameStateMachine();
+        gameStateMachine = new GameStateMachine(initialiseState);
     }
 
 
