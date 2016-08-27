@@ -1,17 +1,16 @@
 package ui.commandline;
 
-import static java.lang.System.exit;
-
-import static com.google.common.collect.Lists.newArrayList;
-
-import java.util.*;
-
 import com.google.inject.Inject;
-
-import core.boundary.GameCoreFacade;
 import core.area.LocationDescription;
+import core.boundary.GameCoreFacade;
 import core.boundary.options.*;
 import ui.framework.OptionBindings;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.Scanner;
+
+import static java.lang.System.exit;
 
 public class GameCommandLine {
 
@@ -45,7 +44,7 @@ public class GameCommandLine {
 	}
 
 	private OptionCategory getSelectedOptionCategory(CategorisedOptions options) {
-		Set<OptionCategory> optionCategories = options.getAllCategories();
+		List<OptionCategory> optionCategories = options.getSortedCategories();
 
 		if(optionCategories.size() == 1){
 			return optionCategories.iterator().next();
@@ -55,8 +54,8 @@ public class GameCommandLine {
 		}
 	}
 
-	private OptionCategory getUserSelectedOptionCategory(Set<OptionCategory> options) {
-		OptionBindings<OptionCategory> interfaceOptions = new OptionBindings<>(newArrayList(options));
+	private OptionCategory getUserSelectedOptionCategory(List<OptionCategory> options) {
+		OptionBindings<OptionCategory> interfaceOptions = new OptionBindings<>(options);
 		//bad
 		commandLineOptionsDisplay.displayOptions(interfaceOptions,Optional.empty());
 		Optional<OptionCategory> selectedOption = commandLineInteraction.getOptionCorrespondingToUserInput(interfaceOptions,getUserInput());

@@ -2,9 +2,7 @@ package core.boundary.options;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-import java.util.jar.Pack200;
+import java.util.stream.Collectors;
 
 /**
  * Created by Pete on 23/08/2016.
@@ -21,7 +19,10 @@ public class CategorisedOptions {
         return allOptions.get(optionCategory);
     }
 
-    public Set<OptionCategory> getAllCategories(){
-        return allOptions.keySet();
+    public List<OptionCategory> getSortedCategories() {
+
+        return allOptions.keySet().stream()
+                .sorted((c1, c2) -> Integer.compare(c1.getOptionType().ordinal(), c2.getOptionType().ordinal()))
+                .collect(Collectors.toList());
     }
 }

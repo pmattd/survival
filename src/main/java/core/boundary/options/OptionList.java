@@ -14,7 +14,6 @@ public class OptionList<T extends DisplayableOption> {
 
 	public OptionList(List<T> options) {
 		this.options = options;
-		//todo optional of nullable is a bit shit
 		this.header = Optional.empty();
 	}
 
@@ -26,8 +25,8 @@ public class OptionList<T extends DisplayableOption> {
 	}
 
 	public static OptionList empty() {
-		return new OptionList(newArrayList());
-	}
+        return new OptionList<>(newArrayList());
+    }
 
 	public Optional<String> getHeader() {
 		return header;
