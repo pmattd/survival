@@ -1,14 +1,13 @@
 package core.area;
 
 import core.area.supplies.SupplyCache;
-import core.area.travel.ArrivalAction;
 import core.boundary.options.ExecutableOption;
 import core.boundary.options.OptionList;
 
 /**
  * Created by Pete on 29/07/2016.
  */
-public class NoLocation implements Location {
+class NoLocation implements Location {
     @Override
     public String getTitle() {
         return "";
@@ -35,12 +34,12 @@ public class NoLocation implements Location {
     }
 
     @Override
-    public ArrivalAction getArrivalAction() {
-        return null;
+    public OptionList<ExecutableOption> getRelocationOptions() {
+        return OptionList.empty();
     }
 
     @Override
-    public OptionList<ExecutableOption> getRelocationOptions() {
-        return OptionList.empty();
+    public void arrive() {
+        //todo throw exception
     }
 }

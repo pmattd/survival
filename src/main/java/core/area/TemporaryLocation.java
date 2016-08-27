@@ -1,7 +1,6 @@
 package core.area;
 
 import core.area.supplies.SupplyCache;
-import core.area.travel.ArrivalAction;
 import core.area.travel.Direction;
 import core.boundary.options.ExecutableOption;
 import core.boundary.options.OptionList;
@@ -46,14 +45,13 @@ public class TemporaryLocation implements Location {
 		return OptionList.empty();
 	}
 
+	@Override
+    public OptionList<ExecutableOption> getRelocationOptions() {
+        return OptionList.empty();
+    }
 
 	@Override
-	public ArrivalAction getArrivalAction() {
-		return null;
-	}
+    public void arrive() {
 
-	@Override
-	public OptionList<ExecutableOption> getRelocationOptions() {
-		return OptionList.empty();
 	}
 }

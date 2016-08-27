@@ -1,7 +1,5 @@
 package core.area;
 
-import static com.google.common.collect.Lists.newArrayList;
-
 import core.area.relocation.RelocationOptionsFactory;
 import core.area.supplies.SupplyCache;
 import core.area.travel.ArrivalAction;
@@ -22,7 +20,8 @@ public class BasicLocation implements Location{
 						 Area area,
 						 SupplyCache supplyCache,
 						 ArrivalAction arrivalAction,
-						 OptionList<ExecutableOption> travelOptions, RelocationOptionsFactory relocationOptionsFactory) {
+						 OptionList<ExecutableOption> travelOptions,
+						 RelocationOptionsFactory relocationOptionsFactory) {
 		this.description = description;
 		this.area = area;
 		this.supplyCache = supplyCache;
@@ -57,13 +56,13 @@ public class BasicLocation implements Location{
 
 
 	@Override
-	public ArrivalAction getArrivalAction(){
-		return arrivalAction;
+	public OptionList<ExecutableOption> getRelocationOptions() {
+		return new OptionList<>(relocationOptionsFactory.build(area.getOtherLocations(this)));
 	}
 
 	@Override
-	public OptionList<ExecutableOption> getRelocationOptions() {
-		return new OptionList<>("", relocationOptionsFactory.build(area.getOtherLocations(this)));
+	public void arrive() {
+		arrivalAction.run();
 	}
 
 }

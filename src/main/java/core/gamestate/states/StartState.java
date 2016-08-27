@@ -1,7 +1,9 @@
 package core.gamestate.states;
 
 import com.google.inject.Inject;
-import core.boundary.options.*;
+import core.boundary.options.CategorisedOptions;
+import core.boundary.options.CategorisedOptionsBuilderFactory;
+import core.boundary.options.OptionCatagoryEnum;
 import core.gamestate.actions.Action;
 import core.gamestate.actions.NextStateActionFactory;
 import core.gamestate.actions.QuitAction;
@@ -29,19 +31,19 @@ public class StartState implements GameState {
     @Override
     public CategorisedOptions getCurrentOptions() {
 
-        //todo could be an action injected
-        //quitAction could be injected
+        //todo quitAction could be injected
 
         Action startCreateHeroAction = nextStateActionFactory.build(createHeroSpecializedState);
         return categorisedOptionsBuilderFactory.create()
-                //todo use singleOptionBuilder
-
-                .withOptions(
+                .withSingleOptionCategory(
                         OptionCatagoryEnum.CREATEHERO,
-                        new OptionList.Builder().withOption("enter the create hero action",startCreateHeroAction).build())
-                .withOptions(
+                        "enter the create hero action",
+                        startCreateHeroAction)
+                .withSingleOptionCategory(
                         OptionCatagoryEnum.QUIT,
-                        new OptionList.Builder().withOption("quit",new QuitAction()).build())
+                        "quit",
+                        new QuitAction()
+                )
                 .build();
 
 

@@ -13,23 +13,20 @@ import core.area.supplies.SupplyCacheFactory;
 @Singleton
 public class Party {
 
+    private final HeroCreationTemplate heroCreationTemplate;
+    private final RetrieveSuppliesActionFactory retrieveSuppliesActionFactory;
     private Hero hero;
     private Inventory inventory;
-    private final HeroCreationTemplate heroCreationTemplate;
     private SupplyCache foundSupplyCache;
-    private final RetrieveSuppliesActionFactory retrieveSuppliesActionFactory;
-    private final EnterCreateHeroAction enterCreateHeroAction;
 
     @Inject
     public Party(HeroCreationTemplate heroCreationTemplate,
                  Inventory inventory,
                  RetrieveSuppliesActionFactory retrieveSuppliesActionFactory,
-                 EnterCreateHeroAction enterCreateHeroAction,
                  SupplyCacheFactory supplyCacheFactory) {
         this.inventory = inventory;
         this.heroCreationTemplate = heroCreationTemplate;
         this.retrieveSuppliesActionFactory = retrieveSuppliesActionFactory;
-        this.enterCreateHeroAction = enterCreateHeroAction;
         this.foundSupplyCache = supplyCacheFactory.emptyCache();
     }
 
@@ -38,7 +35,6 @@ public class Party {
     }
 
     public void createHero(Hero hero){
-        enterCreateHeroAction.run();
         this.hero = hero;
     }
 
@@ -57,12 +53,12 @@ public class Party {
         return text;
     }
 
-    public void setFoundSupplyCache(SupplyCache foundSupplyCache) {
-        this.foundSupplyCache = foundSupplyCache;
-    }
-
     public SupplyCache getFoundSupplyCache(){
         return  foundSupplyCache;
+    }
+
+    public void setFoundSupplyCache(SupplyCache foundSupplyCache) {
+        this.foundSupplyCache = foundSupplyCache;
     }
 
 }

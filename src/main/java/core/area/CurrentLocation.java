@@ -2,9 +2,6 @@ package core.area;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import core.area.travel.ArrivalActionFactory;
-
-import java.util.List;
 
 /**
  * Created by Pete on 29/07/2016.
@@ -25,7 +22,7 @@ public class CurrentLocation {
 
     public void setLocation(Location location) {
         this.location = location;
-        location.getArrivalAction().run();
+        location.arrive();
     }
 
     public LocationDescription getLocationDescription() {
