@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           xmlns:common="http://CommonTypesNamespace/CommonTypes">
+
+    <xs:import schemaLocation="../common-types.xsd"
+               namespace="http://CommonTypesNamespace/CommonTypes"/>
+
+    <xs:element name="narrative">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="dialog" type="dialog" maxOccurs="unbounded" minOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="dialog">
+        <xs:sequence>
+            <xs:element name="interaction" type="interaction" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="start" type="xs:IDREF" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="interaction">
+        <xs:sequence>
+            <xs:element name="choice" type="choice" maxOccurs="1" minOccurs="0"/>
+            <xs:element name="simple-text" type="simple-text" maxOccurs="1" minOccurs="0"/>
+            <xs:element name="combat" type="combat" maxOccurs="1" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+    </xs:complexType>
+
+
+    <xs:complexType name="choice">
+        <xs:sequence>
+            <xs:element name="text" type="common:text" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="option" type="option" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="option">
+        <xs:sequence>
+            <xs:element name="text" type="common:text"/>
+            <xs:element name="next" type="xs:IDREF"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID"/>
+    </xs:complexType>
+
+    <xs:complexType name="simple-text">
+        <xs:sequence>
+            <xs:element name="text" type="common:text"/>
+            <xs:element name="next" type="xs:IDREF" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="combat">
+        <xs:sequence>
+            <xs:element name="text" type="common:text"/>
+            <xs:element name="hostile-group-ref" type="common:text"/>
+            <xs:element name="next" type="xs:IDREF" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

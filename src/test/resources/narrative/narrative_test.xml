@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<narrative xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:noNamespaceSchemaLocation="narrative.xsd">
+    <dialog id="dia1" start="step1">
+
+        <interaction id="step1">
+            <choice>
+                <text key="inter.berries">Will you eat the berries</text>
+                <option>
+                    <text>I will</text>
+                    <next>textDie</next>
+                </option>
+                <option>
+                    <text>I wont</text>
+                    <next>textLive</next>
+                </option>
+            </choice>
+        </interaction>
+
+
+        <interaction id="textLive">
+            <simple-text>
+                <text>you live</text>
+                <next>end</next>
+            </simple-text>
+        </interaction>
+
+        <interaction id="textDie">
+            <simple-text>
+                <text>you die horribly</text>
+                <next>end</next>
+            </simple-text>
+        </interaction>
+
+        <interaction id="end">
+            <simple-text>
+                <text>the end</text>
+            </simple-text>
+        </interaction>
+
+    </dialog>
+
+    <dialog id="petrolStation" start="petrolStart">
+        <interaction id="petrolStart">
+            <combat>
+                <text>you see some hostiles</text>
+                <hostile-group-ref>petrolCombat</hostile-group-ref>
+            </combat>
+        </interaction>
+    </dialog>
+
+</narrative>

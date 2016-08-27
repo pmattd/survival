@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<area-map
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="area-map.xsd"
+
+        area-start="london">
+
+    <area id="london">
+        <title>London</title>
+        <desc key="london.start">The city of london</desc>
+        <directions>
+            <direction area-id="north.london">
+                <text>you can head to north london to visit nick</text>
+            </direction>
+            <direction area-id="south.london">
+                <text>you can head to south london to head for the coast</text>
+            </direction>
+        </directions>
+        <location id="london-pharmacy">
+            <title>pharmacyTitle</title>
+            <desc>pharmacy</desc>
+        </location>
+        <location id="london-petrol">
+            <desc>petrol station</desc>
+        </location>
+    </area>
+
+    <area id="north.london">
+        <desc>south london</desc>
+        <location id="nlondon-nick">
+            <desc>nicks house</desc>
+            <supplies>
+                <scavenge-text>scavengeText</scavenge-text>
+                <food>5</food>
+            </supplies>
+        </location>
+    </area>
+
+
+    <area id="south.london">
+        <desc>south london</desc>
+        <location id="slondon-train">
+            <desc>train station</desc>
+        </location>
+    </area>
+
+</area-map>

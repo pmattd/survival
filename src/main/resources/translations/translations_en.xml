@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<translations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:noNamespaceSchemaLocation="translations.xsd">
+
+    <!-- game config -->
+
+    <translation key="inter.berries">will you partake of the berries</translation>
+
+    <translation key="outerwall.area.desc">you are at the outerwall</translation>
+    <translation key="outerwall.start.location.desc">north you can see what looks like a small village</translation>
+    <translation key="outerwall.direction.north">head north</translation>
+
+    <translation key="bov.desc">burnt out village</translation>
+    <translation key="bov.ps.desc">an abandoned petrol station</translation>
+    <translation key="bov.house.desc">an abandoned house</translation>
+    <translation key="bov.ps.scavange">you find some tinned food and drinks</translation>
+    <translation key="bov.house.scavange">you find plenty of food</translation>
+
+
+
+
+</translations>

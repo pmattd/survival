@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           xmlns:common="http://CommonTypesNamespace/CommonTypes">
+
+    <xs:element name="hostiles">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="hostile-group" type="hostile-group" maxOccurs="unbounded" minOccurs="1"/>
+                <xs:element name="hostile" type="hostile" maxOccurs="unbounded" minOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+
+    </xs:element>
+
+    <xs:complexType name="hostile-group">
+        <xs:sequence>
+            <xs:element name="group-member" type="group-member" maxOccurs="unbounded" minOccurs="1"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="group-member">
+        <xs:attribute name="hostile-ref" type="xs:IDREF" use="required"/>
+        <xs:attribute name="qty" type="xs:int" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="hostile">
+        <xs:sequence>
+            <xs:element name="default-name" type="xs:string" maxOccurs="1" minOccurs="1"/>
+            <xs:element name="health" type="xs:int" maxOccurs="1" minOccurs="1"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+    </xs:complexType>
+
+</xs:schema>

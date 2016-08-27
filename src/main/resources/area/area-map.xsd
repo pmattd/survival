@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           xmlns:common="http://CommonTypesNamespace/CommonTypes">
+
+    <xs:import schemaLocation="../common-types.xsd"
+               namespace="http://CommonTypesNamespace/CommonTypes"/>
+
+    <xs:element name="area-map">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="area" type="area" maxOccurs="unbounded" minOccurs="1"/>
+            </xs:sequence>
+            <xs:attribute name="area-start" type="xs:IDREF" use="required"/>
+        </xs:complexType>
+
+    </xs:element>
+
+    <xs:complexType name="area">
+        <xs:sequence>
+            <xs:element name="title" type="common:text" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="desc" type="common:text" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="directions" type="directions" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="location" type="location" minOccurs="1" maxOccurs="unbounded"/>
+
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID"/>
+    </xs:complexType>
+
+
+    <xs:complexType name="directions">
+        <xs:sequence>
+            <xs:element name="direction" type="direction" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="direction">
+        <xs:sequence>
+            <xs:element name="text" type="common:text" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+        <xs:attribute name="area-id" type="xs:IDREF" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="location">
+        <xs:sequence>
+            <xs:element name="title" type="common:text" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="desc" type="common:text" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="supplies" type="supplies" minOccurs="0" maxOccurs="10"/>
+            <xs:element name="arrival-event" type="xs:string" minOccurs="0" maxOccurs="10"/>
+
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="supplies">
+        <xs:sequence>
+            <xs:element name="scavenge-text" type="common:text" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="food" type="xs:int" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

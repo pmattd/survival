@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<translations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="translations.xsd">
+
+    <translation key="button.nexto">continue</translation>
+    <translation key="options.fight">Fight</translation>
+</translations>

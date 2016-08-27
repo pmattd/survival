@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<translations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="translations.xsd">
+
+    <translation key="options.dialog">Dialog</translation>
+    <translation key="options.travel">Travel</translation>
+    <translation key="options.create.hero">Create Hero</translation>
+    <translation key="options.relocate">Relocate</translation>
+    <translation key="options.scavenge">Scavenge</translation>
+    <translation key="options.scavenge.collect">Collect the results of the scavenge</translation>
+    <translation key="options.fight">Fight</translation>
+    <translation key="options.quit">Quit</translation>
+
+    <translation key="scavenge.no.supplies">you find nothing</translation>
+
+    <translation key="interaction.next">continue</translation>
+
+    <translation key= "hero.creation.title">Create your survivor</translation>
+    <translation key="hero.creation.nameinput.title">Name</translation>
+
+</translations>

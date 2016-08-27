@@ -1,0 +1,38 @@
+24. write tests for the gamestates
+25. Relocate needs implementing
+
+
+5. add some basic combat.
+15. implement a temporary location - the code is already there -> use it
+1. Travel should take time so should any executable option. also this should consume food
+
+14. where there is only one action possible don't propose the action in the command line gui? 
+16. don't use the translations keys. should first use the xml. write a parser to convert texts from the xml to keys in a file
+3 show inventory action
+
+23. retrieve supplies only encapsulates game state change
+
+
+
+
+Story
+1. medieval plague.
+2. current day plague.
+
+Player starts having being exiled from the safe zone has to make it to another safe zone
+scenary is english countryside.
+
+first encounter, 
+abandoned petrol station, area has only one location
+
+can scavange only current location  
+can camp
+no relocate
+travel options -> forest, 
+
+the only places with multiple locations are going to be cities.
+
+
+
+
+

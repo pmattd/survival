@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<area-map
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="area-map.xsd"
+
+        area-start="outerwall">
+
+    <area id="outerwall">
+        <title>the outerwall</title>
+        <desc>the outerwall</desc>
+        <directions>
+            <direction area-id="burnt.out.village">
+                <text>you can head to north into the wilderness</text>
+            </direction>
+        </directions>
+        <location id="outerwall.start">
+            <title>the outerwall</title>
+            <desc>the outerwall</desc>
+            <arrival-event>dia1</arrival-event>
+        </location>
+    </area>
+
+    <area id="burnt.out.village">
+        <title>burnt out village</title>
+        <desc>burnt out village</desc>
+        <location id="petrol.station">
+            <title>abandoned petrol station</title>
+            <desc>an abandoned petrol station</desc>
+            <supplies>
+                <scavenge-text>you find some tinned food and drinks</scavenge-text>
+                <food>5</food>
+            </supplies>
+<!--
+            <arrival-event>petrolStation</arrival-event>
+-->
+        </location>
+        <location id="bov.house">
+            <title>abandoned house</title>
+            <desc>an abandoned house</desc>
+            <supplies>
+                <scavenge-text>you find plenty of food</scavenge-text>
+                <food>10</food>
+            </supplies>
+        </location>
+    </area>
+
+</area-map>

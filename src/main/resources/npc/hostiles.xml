@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<hostiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:noNamespaceSchemaLocation="hostiles.xsd">
+
+    <hostile-group id="petrolCombat">
+        <group-member hostile-ref="man1" qty="5"/>
+    </hostile-group>
+
+
+    <hostile id="man1">
+        <default-name>man</default-name>
+        <health>5</health>
+    </hostile>
+
+</hostiles>
