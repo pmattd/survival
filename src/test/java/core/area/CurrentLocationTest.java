@@ -17,7 +17,7 @@ public class CurrentLocationTest {
     Location location;
     @Mock
     LocationDescription locationDescription;
-    private CurrentLocation currentLocation;
+
     private CurrentLocation currentLocation;
 
     @Before

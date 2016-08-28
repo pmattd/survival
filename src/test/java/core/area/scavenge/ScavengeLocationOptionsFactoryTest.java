@@ -3,8 +3,8 @@ package core.area.scavenge;
 import core.area.Location;
 import core.boundary.options.ExecutableOption;
 import core.gamestate.GameStateMachine;
-import core.gamestate.states.ScavengeState;
-import core.hero.Party;
+import core.gamestate.states.specialized.InventorySpecializedState;
+import core.hero.Inventory;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -26,10 +26,10 @@ public class ScavengeLocationOptionsFactoryTest {
     GameStateMachine gameStateMachine;
 
     @Mock
-    Party party;
+    Inventory inventory;
 
     @Mock
-    ScavengeState scavengeState;
+    InventorySpecializedState inventorySpecializedState;
 
     @Mock
     private Location location;
@@ -40,7 +40,7 @@ public class ScavengeLocationOptionsFactoryTest {
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
-        scavengeLocationOptionsFactory = new ScavengeLocationOptionsFactory(gameStateMachine, party,scavengeState);
+        scavengeLocationOptionsFactory = new ScavengeLocationOptionsFactory(gameStateMachine, inventorySpecializedState, inventory);
     }
 
 
