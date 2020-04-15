@@ -6,6 +6,7 @@ import core.boundary.GameCoreFacade;
 import core.boundary.options.InterfaceOptionsStore;
 import core.gamestate.GameStateMachine;
 import core.gamestate.states.StartState;
+import core.hero.InventoryTransferInterface;
 import core.hero.Party;
 import org.junit.Before;
 import org.mockito.Mock;
@@ -36,10 +37,13 @@ public class GameCoreFacadeTest {
 	@Mock
 	StartState startState;
 
+	@Mock
+	private InventoryTransferInterface inventoryTransferInterface;
+
 	@Before
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
-		this.gameCoreFacade = new GameCoreFacade(party, gameStateMachine,  currentLocation, gameMap, startState);
+		this.gameCoreFacade = new GameCoreFacade(party, gameStateMachine, currentLocation, gameMap, startState, inventoryTransferInterface);
 	}
 
 

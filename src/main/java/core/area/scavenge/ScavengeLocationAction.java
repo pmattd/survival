@@ -38,6 +38,7 @@ public class ScavengeLocationAction implements Action {
         gameStateMachine.setState(inventorySpecializedState);
         inventory.setFoundSupplyCache(location.scavenge());
 
+
         //todo this shouldn't happen here and the party shouldn't create an action
         //party.transferFoundSuppliesToInventory();
 

@@ -1,6 +1,7 @@
 package core.hero;
 
 import com.google.inject.Singleton;
+import core.area.supplies.Supplies;
 import core.area.supplies.SupplyCache;
 
 /**
@@ -9,7 +10,6 @@ import core.area.supplies.SupplyCache;
 @Singleton
 public class Inventory {
     private int food;
-    private boolean active;
     private SupplyCache foundSupplyCache;
 
     public Inventory(){
@@ -23,11 +23,20 @@ public class Inventory {
         this.food += food;
     }
 
-    public void setActive() {
-        this.active = true;
-    }
 
     public void setFoundSupplyCache(SupplyCache foundSupplyCache) {
         this.foundSupplyCache = foundSupplyCache;
     }
+
+    public Supplies getFoundSupplies() {
+        return foundSupplyCache.getSupplies();
+    }
+
+    ;
+
+    public void transferSupplies(int foodQuantity) {
+        Supplies supplies = foundSupplyCache.getAndRemoveSupplies();
+        addFood(supplies.getFood());
+    }
+
 }

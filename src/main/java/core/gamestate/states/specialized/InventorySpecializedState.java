@@ -5,7 +5,7 @@ import com.google.inject.Singleton;
 import core.boundary.options.CategorisedOptions;
 import core.boundary.options.CategorisedOptionsBuilderFactory;
 
-import static core.boundary.options.OptionCatagoryEnum.SPECIALIZED_INVENTORY;
+import static core.boundary.options.OptionCatagoryEnum.SPECIALIZED_INVENTORY_TRANSFER;
 
 /**
  * Created by Pete on 27/08/2016.
@@ -21,6 +21,6 @@ public class InventorySpecializedState implements SpecializedState {
 
     @Override
     public CategorisedOptions getCurrentOptions() {
-        return categorisedOptionsBuilderFactory.create().buildSpecializedStateOptions(SPECIALIZED_INVENTORY);
+        return categorisedOptionsBuilderFactory.create().buildSpecializedStateOptions(SPECIALIZED_INVENTORY_TRANSFER);
     }
 }

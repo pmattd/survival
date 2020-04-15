@@ -32,8 +32,8 @@ public class InterfaceOptionsStore {
 		interfaceOptions.put(SCAVENGE_COLLECT,new OptionCategory(SCAVENGE_COLLECT,translations.getTranslation(TranslationConstants.OPTIONS_SCAVENGE_COLLECT)));
 		interfaceOptions.put(QUIT,new OptionCategory(QUIT,translations.getTranslation(TranslationConstants.OPTIONS_QUIT)));
 
-		interfaceOptions.put(SPECIALIZED_HERO_CREATION,new OptionCategory(SPECIALIZED_HERO_CREATION,"shouldn't be shown"));
-        interfaceOptions.put(SPECIALIZED_INVENTORY, new OptionCategory(SPECIALIZED_INVENTORY, "shouldn't be shown"));
+		interfaceOptions.put(SPECIALIZED_HERO_CREATION, new OptionCategory(SPECIALIZED_HERO_CREATION, "shouldn't be shown"));
+        interfaceOptions.put(SPECIALIZED_INVENTORY_TRANSFER, new OptionCategory(SPECIALIZED_INVENTORY_TRANSFER, "shouldn't be shown"));
     }
 
 	public OptionCategory getOption(OptionCatagoryEnum option){

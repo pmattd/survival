@@ -20,8 +20,11 @@ public class SupplyCache {
         return suppliesToReturn;
     }
 
-    public String getScavengeText(){
+    public String getScavengeText() {
         return supplies.getScavengeText();
     }
 
+    public Supplies getSupplies() {
+        return supplies;
+    }
 }
