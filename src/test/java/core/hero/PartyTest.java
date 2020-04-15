@@ -49,7 +49,7 @@ public class PartyTest {
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
-        this.party = new Party(heroCreationTemplate,inventory,retrieveSuppliesActionFactory, enterCreateHeroAction,supplyCacheFactory);
+        this.party = new Party(inventory,retrieveSuppliesActionFactory, supplyCacheFactory);
     }
 
 

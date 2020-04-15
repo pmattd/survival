@@ -11,25 +11,23 @@ import core.area.supplies.SupplyCacheFactory;
  * Created by Pete on 08/06/2016.
  */
 @Singleton
+
+//todo change to a case class
+
 public class Party {
 
     private Hero hero;
     private Inventory inventory;
-    private final HeroCreationTemplate heroCreationTemplate;
+
     private SupplyCache foundSupplyCache;
     private final RetrieveSuppliesActionFactory retrieveSuppliesActionFactory;
-    private final EnterCreateHeroAction enterCreateHeroAction;
 
     @Inject
-    public Party(HeroCreationTemplate heroCreationTemplate,
-                 Inventory inventory,
+    public Party(Inventory inventory,
                  RetrieveSuppliesActionFactory retrieveSuppliesActionFactory,
-                 EnterCreateHeroAction enterCreateHeroAction,
                  SupplyCacheFactory supplyCacheFactory) {
         this.inventory = inventory;
-        this.heroCreationTemplate = heroCreationTemplate;
         this.retrieveSuppliesActionFactory = retrieveSuppliesActionFactory;
-        this.enterCreateHeroAction = enterCreateHeroAction;
         this.foundSupplyCache = supplyCacheFactory.emptyCache();
     }
 
@@ -38,16 +36,7 @@ public class Party {
     }
 
     public void createHero(Hero hero){
-        enterCreateHeroAction.run();
         this.hero = hero;
-    }
-
-    public HeroCreationTemplate getHeroCreationTemplate() {
-        return heroCreationTemplate;
-    }
-
-    public int getFood() {
-        return inventory.getFood();
     }
 
     public String transferFoundSuppliesToInventory(){

@@ -8,6 +8,7 @@ import core.area.LocationDescription;
 import core.boundary.options.CategorisedOptions;
 import core.gamestate.GameStateMachine;
 import core.gamestate.states.StartState;
+import core.hero.EnterCreateHeroAction;
 import core.hero.Hero;
 import core.hero.HeroCreationTemplate;
 import core.hero.Party;
@@ -18,18 +19,21 @@ public class GameCoreFacade {
     private final GameStateMachine gameStateMachine;
     private final CurrentLocation currentLocation;
     private final GameMap gameMap;
-
+    private final HeroCreationTemplate heroCreationTemplate;
+    private final EnterCreateHeroAction enterCreateHeroAction;
 
     @Inject
     public GameCoreFacade(Party party,
                           GameStateMachine gameStateMachine,
                           CurrentLocation currentLocation,
-                          GameMap gameMap, StartState startState) {
+                          GameMap gameMap, StartState startState, HeroCreationTemplate heroCreationTemplate, EnterCreateHeroAction enterCreateHeroAction) {
 
         this.party = party;
         this.gameStateMachine = gameStateMachine;
         this.currentLocation = currentLocation;
         this.gameMap = gameMap;
+        this.heroCreationTemplate = heroCreationTemplate;
+        this.enterCreateHeroAction = enterCreateHeroAction;
         gameStateMachine.setState(startState);
     }
 
@@ -48,10 +52,11 @@ public class GameCoreFacade {
 
     //hero
     public HeroCreationTemplate getHeroCreationTemplate() {
-        return party.getHeroCreationTemplate();
+        return heroCreationTemplate;
     }
 
     public void createHeroAndStart(Hero hero) {
+        enterCreateHeroAction.run();
         party.createHero(hero);
         startScenario();
     }
