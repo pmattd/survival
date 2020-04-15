@@ -7,7 +7,6 @@ import core.area.LocationDescription;
 import core.boundary.options.CategorisedOptions;
 import core.gamestate.GameStateMachine;
 import core.gamestate.states.StartState;
-import core.hero.EnterCreateHeroAction;
 import core.hero.Hero;
 import core.hero.HeroCreationTemplate;
 import core.hero.InventoryTransferInterface;
@@ -22,14 +21,13 @@ public class GameCoreFacade {
     private final InventoryTransferInterface inventoryTransferInterface;
 
     private final HeroCreationTemplate heroCreationTemplate;
-    private final EnterCreateHeroAction enterCreateHeroAction;
 
     @Inject
     public GameCoreFacade(Party party,
                           GameStateMachine gameStateMachine,
                           CurrentLocation currentLocation,
-                          InventoryTransferInterface inventoryTransferInterface
-                          GameMap gameMap, StartState startState, HeroCreationTemplate heroCreationTemplate, EnterCreateHeroAction enterCreateHeroAction) {
+                          InventoryTransferInterface inventoryTransferInterface,
+                          GameMap gameMap, StartState startState, HeroCreationTemplate heroCreationTemplate) {
 
         this.party = party;
         this.gameStateMachine = gameStateMachine;
@@ -37,7 +35,6 @@ public class GameCoreFacade {
         this.gameMap = gameMap;
         this.inventoryTransferInterface = inventoryTransferInterface;
         this.heroCreationTemplate = heroCreationTemplate;
-        this.enterCreateHeroAction = enterCreateHeroAction;
         gameStateMachine.setState(startState);
     }
 
@@ -60,7 +57,6 @@ public class GameCoreFacade {
     }
 
     public void createHeroAndStart(Hero hero) {
-        enterCreateHeroAction.run();
         party.createHero(hero);
         startScenario();
     }

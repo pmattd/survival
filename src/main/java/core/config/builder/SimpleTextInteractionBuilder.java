@@ -36,7 +36,7 @@ public class SimpleTextInteractionBuilder {
         List<InteractionOption> interactionOptions = interactionOptionFactory.build(simpleTextConfig.getNextInteraction(), interactionFactory);
 
         OptionList<ExecutableOption> optionList = new OptionList<>(
-                Optional.of(textFactory.build(simpleTextConfig.getText())), dialogOptionsFactory.build(interactionOptions)
+                textFactory.build(simpleTextConfig.getText()), dialogOptionsFactory.build(interactionOptions)
         );
 
         return new BasicInteraction(optionList,false);

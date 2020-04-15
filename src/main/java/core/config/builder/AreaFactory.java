@@ -68,7 +68,8 @@ public class AreaFactory {
         List<Location> locations = buildLocations(areaConfig.getLocations(),area);
 
         area.setLocations(locations);
-        area.setScavengeOptions(new OptionList<>(Optional.empty(), scavengeLocationOptionsFactory.build(locations)));
+        area.setScavengeOptions(new OptionList<>(scavengeLocationOptionsFactory.build(locations)));
+
 
         builtAreas.put(areaConfig.getId(), area);
 

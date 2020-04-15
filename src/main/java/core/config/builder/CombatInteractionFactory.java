@@ -35,7 +35,7 @@ public class CombatInteractionFactory {
 
 
         OptionList<ExecutableOption> optionList = new OptionList<>(
-                Optional.of(textFactory.build(combatConfig.getText())), startCombatOptionFactory.build(hostileGroup)
+                textFactory.build(combatConfig.getText()), startCombatOptionFactory.build(hostileGroup)
         );
 
         return new BasicInteraction(optionList,false);

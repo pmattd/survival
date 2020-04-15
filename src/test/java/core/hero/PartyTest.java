@@ -32,12 +32,6 @@ public class PartyTest {
     RetrieveSuppliesActionFactory retrieveSuppliesActionFactory;
 
     @Mock
-    EnterCreateHeroAction enterCreateHeroAction;
-
-    @Mock
-    Hero hero;
-
-    @Mock
     SupplyCache foundSupplyCache;
 
     @Mock

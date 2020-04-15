@@ -37,6 +37,6 @@ public class TravelOptionsFactory {
                                 direction.getText(), travelActionFactory.build(direction)))
                         .collect(Collectors.toList()));
 
-        return new OptionList<>(Optional.empty(), executableOptions);
+        return new OptionList<>(executableOptions);
     }
 }

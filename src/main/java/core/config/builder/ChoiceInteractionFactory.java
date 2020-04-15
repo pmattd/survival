@@ -38,7 +38,7 @@ public class ChoiceInteractionFactory {
         List<ExecutableOption> options = dialogOptionsFactory.build(interactionOptions);
 
         OptionList<ExecutableOption> optionList = new OptionList<>(
-                Optional.of(textFactory.build(choiceConfig.getText())), options);
+                textFactory.build(choiceConfig.getText()), options);
 
         return new BasicInteraction(optionList,false);
     }
