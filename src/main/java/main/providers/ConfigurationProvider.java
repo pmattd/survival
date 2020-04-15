@@ -17,23 +17,22 @@ import java.io.File;
 @Singleton
 public class ConfigurationProvider implements Provider<Configuration> {
 
-    Logger logger = LoggerFactory.getLogger(ConfigurationProvider.class);
-
-    private final ConfigParser configParser;
+    private final Configuration configuration;
+    private Logger logger = LoggerFactory.getLogger(ConfigurationProvider.class);
 
     @Inject
     public ConfigurationProvider(ConfigParser configParser) {
-        this.configParser = configParser;
-    }
-
-    public Configuration get() {
         File narratives = createFile("narrative/narrative.xml");
         File translations = createFile("translations/translations_en.xml");
         File coreTranslations = createFile("translations/core_translations_en.xml");
         File locationMap = createFile("area/area-map.xml");
         File hostilesConfig = createFile("npc/hostiles.xml");
-        return configParser.readConfiguration(narratives, coreTranslations, translations, locationMap, hostilesConfig);
+        configuration = configParser.readConfiguration(narratives, coreTranslations, translations, locationMap, hostilesConfig);
 
+    }
+
+    public Configuration get() {
+        return configuration;
     }
 
     private File createFile(String resourcePath) {

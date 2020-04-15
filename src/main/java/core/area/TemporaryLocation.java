@@ -1,9 +1,6 @@
 package core.area;
 
-import static com.google.common.collect.Lists.newArrayList;
-
 import core.area.supplies.SupplyCache;
-import core.area.travel.ArrivalAction;
 import core.area.travel.Direction;
 import core.boundary.options.ExecutableOption;
 import core.boundary.options.OptionList;
@@ -39,23 +36,22 @@ public class TemporaryLocation implements Location {
 
 	@Override
 	public OptionList<ExecutableOption> getTravelOptions() {
-		return OptionList.emptyList();
+		return OptionList.empty();
 	}
 
 	@Override
 	public OptionList<ExecutableOption> getScavengeOptions() {
 
-		return OptionList.emptyList();
-	}
-
-
-	@Override
-	public ArrivalAction getArrivalAction() {
-		return null;
+		return OptionList.empty();
 	}
 
 	@Override
-	public OptionList<ExecutableOption> getRelocationOptions() {
-		return OptionList.emptyList();
+    public OptionList<ExecutableOption> getRelocationOptions() {
+        return OptionList.empty();
+    }
+
+	@Override
+    public void arrive() {
+
 	}
 }

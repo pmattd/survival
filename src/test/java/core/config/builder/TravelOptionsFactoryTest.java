@@ -11,8 +11,6 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.util.Optional;
-
 import static com.google.inject.internal.util.$Lists.newArrayList;
 import static org.fest.assertions.Assertions.assertThat;
 import static org.mockito.Mockito.when;
@@ -22,16 +20,13 @@ import static org.mockito.Mockito.when;
  */
 public class TravelOptionsFactoryTest {
 
-    TravelOptionsFactory travelOptionsFactory;
-
     @Mock
     TravelActionFactory travelActionFactory;
-
     @Mock
     Area area;
-
     @Mock
     Direction direction;
+    private TravelOptionsFactory travelOptionsFactory;
 
     @Before
     public void setUp() throws Exception {
@@ -46,8 +41,8 @@ public class TravelOptionsFactoryTest {
 		when(direction.getText()).thenReturn("directionText");
 		OptionList<ExecutableOption> options = travelOptionsFactory.buildTravelOptions(area);
 
-		assertThat(options.getHeader()).isEqualTo(Optional.empty());
-		assertThat(options.getOptions()).hasSize(1);
-		assertThat(options.getOptions().get(0).getDescription()).isEqualTo("directionText");
+        assertThat(options.getHeader().get()).isEqualTo("");
+        assertThat(options.getOptions()).hasSize(1);
+        assertThat(options.getOptions().get(0).getDescription()).isEqualTo("directionText");
 	}
 }

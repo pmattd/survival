@@ -5,8 +5,8 @@ import com.google.inject.Singleton;
 import core.area.Location;
 import core.boundary.options.ExecutableOption;
 import core.gamestate.GameStateMachine;
-import core.gamestate.states.ScavengeState;
-import core.hero.Party;
+import core.gamestate.states.specialized.InventorySpecializedState;
+import core.hero.Inventory;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,14 +18,14 @@ import java.util.stream.Collectors;
 public class ScavengeLocationOptionsFactory {
 
     private final GameStateMachine gameStateMachine;
-    private final Party party;
-    private final ScavengeState scavengeState;
+    private final InventorySpecializedState inventorySpecializedState;
+    private final Inventory inventory;
 
     @Inject
-    public ScavengeLocationOptionsFactory(GameStateMachine gameStateMachine, Party party, ScavengeState scavengeState) {
+    public ScavengeLocationOptionsFactory(GameStateMachine gameStateMachine, InventorySpecializedState inventorySpecializedState, Inventory inventory) {
         this.gameStateMachine = gameStateMachine;
-        this.party = party;
-        this.scavengeState = scavengeState;
+        this.inventorySpecializedState = inventorySpecializedState;
+        this.inventory = inventory;
     }
 
     public List<ExecutableOption> build(List<Location> locations){
@@ -35,7 +35,7 @@ public class ScavengeLocationOptionsFactory {
     }
 
     private ScavengeLocationAction build(Location location){
-        return new ScavengeLocationAction(gameStateMachine,location, party, scavengeState);
+        return new ScavengeLocationAction(gameStateMachine, location, inventory, inventorySpecializedState);
     }
 
     private ExecutableOption scavengeAction(Location location) {

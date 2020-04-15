@@ -1,9 +1,5 @@
 package core.area;
 
-import static org.fest.assertions.Assertions.assertThat;
-
-import static com.google.common.collect.Lists.newArrayList;
-
 import core.area.relocation.RelocationOptionsFactory;
 import core.area.supplies.SupplyCache;
 import core.area.travel.ArrivalAction;
@@ -15,33 +11,28 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import static org.fest.assertions.Assertions.assertThat;
+
 /**
  * Created by Pete on 15/06/2016.
  */
 public class BasicLocationTest {
 
-    BasicLocation location;
-
     @Mock
     Location otherLocation;
-
     @Mock
     Area area;
-
-    @Mock
-    private Direction direction;
-
     @Mock
     SupplyCache supplyCache;
-
     @Mock
     OptionList<ExecutableOption> travelOptions;
-
     @Mock
     ArrivalAction arrivalAction;
-
     @Mock
     RelocationOptionsFactory relocationOptionsFactory;
+    private BasicLocation location;
+    @Mock
+    private Direction direction;
 
     @Before
     public void setup(){
@@ -55,7 +46,6 @@ public class BasicLocationTest {
     public void testScavenge(){
         assertThat(location.scavenge()).isEqualTo(supplyCache);
     }
-
 
 
 

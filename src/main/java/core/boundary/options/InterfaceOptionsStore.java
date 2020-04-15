@@ -1,23 +1,17 @@
 package core.boundary.options;
 
-import static com.google.common.collect.Maps.newHashMap;
-
-import static core.boundary.options.OptionCatagoryEnum.*;
-import static core.translations.TranslationConstants.OPTIONS_CREATE_HERO;
-import static core.translations.TranslationConstants.OPTIONS_DIALOG;
-import static core.translations.TranslationConstants.OPTIONS_RELOCATE;
-import static core.translations.TranslationConstants.OPTIONS_SCAVENGE;
-import static core.translations.TranslationConstants.OPTIONS_TRAVEL;
-
-import java.util.HashMap;
-
 import com.google.inject.Inject;
-
 import com.google.inject.Singleton;
 import core.translations.TranslationConstants;
 import core.translations.Translations;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.HashMap;
+
+import static com.google.common.collect.Maps.newHashMap;
+import static core.boundary.options.OptionCatagoryEnum.*;
+import static core.translations.TranslationConstants.*;
 
 @Singleton
 public class InterfaceOptionsStore {
@@ -38,8 +32,9 @@ public class InterfaceOptionsStore {
 		interfaceOptions.put(SCAVENGE_COLLECT,new OptionCategory(SCAVENGE_COLLECT,translations.getTranslation(TranslationConstants.OPTIONS_SCAVENGE_COLLECT)));
 		interfaceOptions.put(QUIT,new OptionCategory(QUIT,translations.getTranslation(TranslationConstants.OPTIONS_QUIT)));
 
-		interfaceOptions.put(SPECIALIZED_HERO_CREATION,new OptionCategory(SPECIALIZED_HERO_CREATION,"shouldn't be shown"));
-	}
+		interfaceOptions.put(SPECIALIZED_HERO_CREATION, new OptionCategory(SPECIALIZED_HERO_CREATION, "shouldn't be shown"));
+        interfaceOptions.put(SPECIALIZED_INVENTORY_TRANSFER, new OptionCategory(SPECIALIZED_INVENTORY_TRANSFER, "shouldn't be shown"));
+    }
 
 	public OptionCategory getOption(OptionCatagoryEnum option){
 		OptionCategory optionCategory = interfaceOptions.get(option);

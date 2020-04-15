@@ -1,6 +1,5 @@
 package core.area;
 
-import core.area.travel.ArrivalAction;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -14,16 +13,12 @@ import static org.mockito.Mockito.*;
  */
 public class CurrentLocationTest {
 
-    CurrentLocation currentLocation;
-
     @Mock
     Location location;
-
     @Mock
     LocationDescription locationDescription;
 
-    @Mock
-    ArrivalAction arrivalAction;
+    private CurrentLocation currentLocation;
 
     @Before
     public void setUp() throws Exception {
@@ -33,12 +28,11 @@ public class CurrentLocationTest {
 
     @Test
     public void testGetLocationDescription() throws Exception {
-        when(location.getArrivalAction()).thenReturn(arrivalAction);
         currentLocation.setLocation(location);
         when(location.getDescription()).thenReturn(locationDescription);
 
         LocationDescription locationDescription2 = currentLocation.getLocationDescription();
         assertThat(locationDescription2).isEqualTo(locationDescription);
-        verify(arrivalAction, times(1)).run();
+        verify(location, times(1)).arrive();
     }
 }

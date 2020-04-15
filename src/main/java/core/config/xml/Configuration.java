@@ -12,8 +12,9 @@ import main.providers.ConfigurationProvider;
  * Created by Pete on 21/05/2016.
  */
 
-@Singleton
+
 @ProvidedBy(ConfigurationProvider.class)
+@Singleton
 public class Configuration {
     private final NarrativeConfig narrativeConfig;
     private final AllTranslationsConfig allTranslationsConfig;

@@ -1,7 +1,6 @@
 package core.area;
 
 import core.area.supplies.SupplyCache;
-import core.area.travel.ArrivalAction;
 import core.boundary.options.ExecutableOption;
 import core.boundary.options.OptionList;
 
@@ -20,7 +19,7 @@ public interface Location {
 
     OptionList<ExecutableOption> getScavengeOptions();
 
-    ArrivalAction getArrivalAction();
-
     OptionList<ExecutableOption> getRelocationOptions();
+
+    void arrive();
 }

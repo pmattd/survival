@@ -1,7 +1,6 @@
 package core.boundary;
 
 import com.google.inject.Inject;
-
 import core.area.CurrentLocation;
 import core.area.GameMap;
 import core.area.LocationDescription;
@@ -11,6 +10,7 @@ import core.gamestate.states.StartState;
 import core.hero.EnterCreateHeroAction;
 import core.hero.Hero;
 import core.hero.HeroCreationTemplate;
+import core.hero.InventoryTransferInterface;
 import core.hero.Party;
 
 public class GameCoreFacade {
@@ -19,6 +19,8 @@ public class GameCoreFacade {
     private final GameStateMachine gameStateMachine;
     private final CurrentLocation currentLocation;
     private final GameMap gameMap;
+    private final InventoryTransferInterface inventoryTransferInterface;
+
     private final HeroCreationTemplate heroCreationTemplate;
     private final EnterCreateHeroAction enterCreateHeroAction;
 
@@ -26,12 +28,14 @@ public class GameCoreFacade {
     public GameCoreFacade(Party party,
                           GameStateMachine gameStateMachine,
                           CurrentLocation currentLocation,
+                          InventoryTransferInterface inventoryTransferInterface
                           GameMap gameMap, StartState startState, HeroCreationTemplate heroCreationTemplate, EnterCreateHeroAction enterCreateHeroAction) {
 
         this.party = party;
         this.gameStateMachine = gameStateMachine;
         this.currentLocation = currentLocation;
         this.gameMap = gameMap;
+        this.inventoryTransferInterface = inventoryTransferInterface;
         this.heroCreationTemplate = heroCreationTemplate;
         this.enterCreateHeroAction = enterCreateHeroAction;
         gameStateMachine.setState(startState);
@@ -62,5 +66,7 @@ public class GameCoreFacade {
     }
 
 
-
+    public InventoryTransferInterface getInventoryTransferInterface() {
+        return inventoryTransferInterface;
+    }
 }

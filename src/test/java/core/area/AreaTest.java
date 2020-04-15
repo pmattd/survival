@@ -3,6 +3,7 @@ package core.area;
 import core.area.scavenge.ScavengeLocationAction;
 import core.area.travel.Direction;
 import org.junit.Before;
+import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -14,26 +15,31 @@ import static org.fest.assertions.Assertions.assertThat;
  */
 public class AreaTest {
 
-    private Area area;
-
     @Mock
     Direction direction;
-
-
     @Mock
     Location location;
-
     @Mock
     Location location2;
-
     @Mock
     ScavengeLocationAction scavengeLocationAction;
+    private Area area;
 
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         area = new Area("desc",asList(direction));
+        area.setLocations(asList(location, location2));
+    }
 
+    @Test
+    public void testGetOtherLocations() {
+        assertThat(area.getOtherLocations(location)).containsOnly(location2);
+    }
+
+    @Test
+    public void testGetArrivalLocation() {
+        assertThat(area.getArrivalLocation()).isEqualTo(location);
     }
 
 

@@ -1,12 +1,15 @@
 package core.gamestate;
 
-import static com.google.common.collect.Maps.newHashMap;
-
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-
 import core.boundary.options.CategorisedOptions;
 import core.gamestate.states.GameState;
+import core.gamestate.states.InitialiseState;
+import org.slf4j.LoggerFactory;
+import sun.plugin.dom.exception.InvalidStateException;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * Created by Pete on 19/07/2016.
@@ -14,35 +17,35 @@ import core.gamestate.states.GameState;
 @Singleton
 public class GameStateMachine {
 
-    private GameState gameState;
+    private org.slf4j.Logger logger = LoggerFactory.getLogger(GameStateMachine.class);
 
-    //todo implement a stack of states
-    private GameState childState;
+    private Deque<GameState> stateStack;
 
     @Inject
-    public GameStateMachine(){
-        //todo make this no state
-        this.gameState = null;
-        this.childState = null;
+    public GameStateMachine(InitialiseState initialiseState) {
+        stateStack = new ArrayDeque<>();
+        stateStack.push(initialiseState);
     }
 
     public CategorisedOptions getAllOptions(){
-        if(childState != null){
-            return childState.getCurrentOptions();
-        }
-        return gameState.getCurrentOptions();
+        return stateStack.peek().getCurrentOptions();
     }
 
     public void setState(GameState state) {
         //todo validate transition?
-        this.gameState = state;
+        stateStack.pop();
+        stateStack.push(state);
+        logger.debug(String.format("state change: %s", state.getClass().getSimpleName()));
     }
 
     public void revertToParentState() {
-        this.childState = null;
+        if (stateStack.isEmpty()) {
+            throw new InvalidStateException("cannot revert to parent no states in stack");
+        }
+        stateStack.pop();
     }
 
     public void setChildState(GameState childState) {
-        this.childState = childState;
+        stateStack.push(childState);
     }
 }
