@@ -1,6 +1,7 @@
 package core.config.builder;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.google.inject.Inject;
 
@@ -35,7 +36,7 @@ public class SimpleTextInteractionBuilder {
         List<InteractionOption> interactionOptions = interactionOptionFactory.build(simpleTextConfig.getNextInteraction(), interactionFactory);
 
         OptionList<ExecutableOption> optionList = new OptionList<>(
-                textFactory.build(simpleTextConfig.getText()), dialogOptionsFactory.build(interactionOptions)
+                Optional.of(textFactory.build(simpleTextConfig.getText())), dialogOptionsFactory.build(interactionOptions)
         );
 
         return new BasicInteraction(optionList,false);

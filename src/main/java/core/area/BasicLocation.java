@@ -8,6 +8,8 @@ import core.area.travel.ArrivalAction;
 import core.boundary.options.ExecutableOption;
 import core.boundary.options.OptionList;
 
+import java.util.Optional;
+
 public class BasicLocation implements Location{
 	private final String description;
 	private final Area area;
@@ -63,7 +65,7 @@ public class BasicLocation implements Location{
 
 	@Override
 	public OptionList<ExecutableOption> getRelocationOptions() {
-		return new OptionList<>("", relocationOptionsFactory.build(area.getOtherLocations(this)));
+		return new OptionList<>(Optional.empty(), relocationOptionsFactory.build(area.getOtherLocations(this)));
 	}
 
 }

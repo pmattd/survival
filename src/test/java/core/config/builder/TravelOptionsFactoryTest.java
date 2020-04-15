@@ -11,6 +11,8 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.util.Optional;
+
 import static com.google.inject.internal.util.$Lists.newArrayList;
 import static org.fest.assertions.Assertions.assertThat;
 import static org.mockito.Mockito.when;
@@ -44,7 +46,7 @@ public class TravelOptionsFactoryTest {
 		when(direction.getText()).thenReturn("directionText");
 		OptionList<ExecutableOption> options = travelOptionsFactory.buildTravelOptions(area);
 
-		assertThat(options.getHeader()).isEqualTo("");
+		assertThat(options.getHeader()).isEqualTo(Optional.empty());
 		assertThat(options.getOptions()).hasSize(1);
 		assertThat(options.getOptions().get(0).getDescription()).isEqualTo("directionText");
 	}

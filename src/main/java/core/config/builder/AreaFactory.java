@@ -5,6 +5,7 @@ import static com.google.common.collect.Maps.newHashMap;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.google.inject.Inject;
@@ -67,7 +68,7 @@ public class AreaFactory {
         List<Location> locations = buildLocations(areaConfig.getLocations(),area);
 
         area.setLocations(locations);
-        area.setScavengeOptions(new OptionList<>("", scavengeLocationOptionsFactory.build(locations)));
+        area.setScavengeOptions(new OptionList<>(Optional.empty(), scavengeLocationOptionsFactory.build(locations)));
 
         builtAreas.put(areaConfig.getId(), area);
 

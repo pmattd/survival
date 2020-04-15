@@ -52,14 +52,6 @@ public class PartyTest {
         this.party = new Party(inventory,retrieveSuppliesActionFactory, supplyCacheFactory);
     }
 
-
-    @Test
-    public void testCreateHero() throws Exception {
-        party.createHero(hero);
-        Mockito.verify(enterCreateHeroAction,times(1)).run();
-    }
-
-
     @Test
     public void testTransferFoundSuppliesToInventory() throws Exception {
         when(retrieveSuppliesActionFactory.build(inventory,foundSupplyCache)).thenReturn(retrieveSuppliesAction);

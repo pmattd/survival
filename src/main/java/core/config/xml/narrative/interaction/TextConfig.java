@@ -17,7 +17,6 @@ public class TextConfig {
     @XmlValue
     private String defaultText;
 
-
     public String getTranslationKey() {
         return translationKey;
     }

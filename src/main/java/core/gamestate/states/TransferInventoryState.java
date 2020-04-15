@@ -7,6 +7,7 @@ import core.gamestate.actions.RevertToParentStateActionFactory;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 
 import static com.google.common.collect.Maps.newHashMap;
 import static com.google.inject.internal.util.$Lists.newArrayList;
@@ -37,7 +38,7 @@ public class TransferInventoryState implements  GameState {
         ExecutableOption option = new ExecutableOption("finished", revertToParentStateActionFactory.build());
 
         List<ExecutableOption> finishSubStateOptions = newArrayList(option);
-        OptionList<ExecutableOption> optionList = new OptionList<>("", finishSubStateOptions);
+        OptionList<ExecutableOption> optionList = new OptionList<>(Optional.of(""), finishSubStateOptions);
 
 
 

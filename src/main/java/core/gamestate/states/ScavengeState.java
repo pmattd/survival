@@ -9,6 +9,7 @@ import core.hero.Inventory;
 import core.hero.Party;
 
 import java.util.HashMap;
+import java.util.Optional;
 
 import static com.google.inject.internal.util.$Maps.newHashMap;
 import static core.boundary.options.OptionCatagoryEnum.*;
@@ -43,7 +44,7 @@ public class ScavengeState implements GameState {
         Action action1 = retrieveSuppliesActionFactory.build(inventory, supplyCache);
 
         ExecutableOption option = new ExecutableOption("take all", action1);
-        OptionList<ExecutableOption> inventoryTransferOptions = new OptionList<>(supplyCache.getScavengeText(), asList(option));
+        OptionList<ExecutableOption> inventoryTransferOptions = new OptionList<>(Optional.of(supplyCache.getScavengeText()), asList(option));
 
         return categorisedOptionsBuilderFactory.create().withOptions(SCAVENGE_COLLECT, inventoryTransferOptions).build();
 

@@ -9,6 +9,7 @@ import core.boundary.options.ExecutableOption;
 import core.boundary.options.OptionList;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static com.google.common.collect.Lists.newArrayList;
@@ -36,6 +37,6 @@ public class TravelOptionsFactory {
                                 direction.getText(), travelActionFactory.build(direction)))
                         .collect(Collectors.toList()));
 
-        return new OptionList<>("", executableOptions);
+        return new OptionList<>(Optional.empty(), executableOptions);
     }
 }

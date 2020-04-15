@@ -9,6 +9,8 @@ import core.config.xml.narrative.interaction.CombatConfig;
 import core.dialog.BasicInteraction;
 import core.dialog.Interaction;
 
+import java.util.Optional;
+
 /**
  * Created by Pete on 03/08/2016.
  */
@@ -33,7 +35,7 @@ public class CombatInteractionFactory {
 
 
         OptionList<ExecutableOption> optionList = new OptionList<>(
-                textFactory.build(combatConfig.getText()), startCombatOptionFactory.build(hostileGroup)
+                Optional.of(textFactory.build(combatConfig.getText())), startCombatOptionFactory.build(hostileGroup)
         );
 
         return new BasicInteraction(optionList,false);

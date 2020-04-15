@@ -7,6 +7,8 @@ import com.google.inject.Singleton;
 import core.boundary.options.ExecutableOption;
 import core.boundary.options.OptionList;
 
+import java.util.Optional;
+
 /**
  * Created by Pete on 24/05/2016.
  */
@@ -14,7 +16,7 @@ import core.boundary.options.OptionList;
 public class NoInteraction implements Interaction {
 
     public OptionList<ExecutableOption> getInteractionOptions() {
-        return new OptionList<>("", newArrayList());
+        return new OptionList<>(Optional.empty(), newArrayList());
     }
 
     public boolean isFinal() {
