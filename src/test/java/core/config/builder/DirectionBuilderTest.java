@@ -7,8 +7,8 @@ import static org.mockito.Mockito.when;
 import java.util.Optional;
 
 import core.config.builder.travel.DirectionBuilder;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -53,7 +53,7 @@ public class DirectionBuilderTest {
     @Mock
     TravelInterceptor travelInterceptor;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         directionBuilder = new DirectionBuilder(textFactory, travelInterceptor);

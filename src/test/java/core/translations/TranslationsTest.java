@@ -1,7 +1,8 @@
 package core.translations;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 
@@ -20,7 +21,7 @@ public class TranslationsTest {
     public static final String transVal2 = "goodbye";
     Translations translations;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         HashMap<String,String> translationsMap = newHashMap();
         translationsMap.put(translateKey1, transVal1);
@@ -35,8 +36,8 @@ public class TranslationsTest {
         assertThat(translations.getTranslation(translateKey1)).isEqualTo(transVal1);
     }
 
-    @Test(expected = NoTranslationForKeyException.class)
+    @Test
     public void testMissingTranslation() throws Exception {
-        translations.getTranslation("missing.translation");
+        Assertions.assertThrows(NoTranslationForKeyException.class, () -> translations.getTranslation("missing.translation"));
     }
 }

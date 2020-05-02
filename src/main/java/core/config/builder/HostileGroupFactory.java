@@ -7,9 +7,9 @@ import core.combat.HostileGroup;
 import core.config.xml.hostiles.GroupMemberConfig;
 import core.config.xml.hostiles.HostileGroupConfig;
 
+import java.util.Collections;
 import java.util.List;
 
-import static com.google.inject.internal.util.$Lists.newArrayList;
 
 /**
  * Created by Pete on 03/08/2016.
@@ -26,7 +26,7 @@ public class HostileGroupFactory {
 
     public HostileGroup build(HostileGroupConfig config) {
 
-        List<Hostile> hostiles =  newArrayList();
+        List<Hostile> hostiles =  Collections.emptyList();
 
         for (GroupMemberConfig groupMemberConfig : config.getGroupMembers()) {
             hostiles.addAll(hostileFactory.build(groupMemberConfig));

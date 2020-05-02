@@ -1,8 +1,9 @@
 package core.boundary.options;
 
 import core.translations.Translations;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -20,7 +21,7 @@ public class InterfaceOptionsStoreTest {
     @Mock
     private Translations translations;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         when(translations.getTranslation(anyString())).thenReturn("translation");
@@ -35,9 +36,11 @@ public class InterfaceOptionsStoreTest {
     }
 
 
-    @Test(expected = OptionDoesNotExistException.class)
+    @Test
     public void getNothingOption() throws Exception {
-        OptionCategory optionCategory = interfaceOptionsStore.getOption(OptionCatagoryEnum.NOTHING);
+        Assertions.assertThrows(OptionDoesNotExistException.class,() -> {
+            OptionCategory optionCategory = interfaceOptionsStore.getOption(OptionCatagoryEnum.NOTHING);
+        });
     }
 
 }

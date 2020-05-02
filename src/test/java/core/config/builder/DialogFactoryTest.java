@@ -4,8 +4,8 @@ import core.config.xml.narrative.DialogConfig;
 import core.config.xml.narrative.interaction.InteractionConfig;
 import core.dialog.Dialog;
 import core.dialog.Interaction;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -33,7 +33,7 @@ public class DialogFactoryTest {
     Interaction interaction;
 
 
-    @Before
+    @BeforeEach
     public void setup(){
         MockitoAnnotations.initMocks(this);
         when(dialogConfig.getId()).thenReturn("id");

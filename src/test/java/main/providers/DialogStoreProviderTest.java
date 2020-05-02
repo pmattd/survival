@@ -7,8 +7,8 @@ import core.config.xml.narrative.NarrativeConfig;
 import core.dialog.Dialog;
 import core.dialog.DialogStore;
 import core.dialog.Interaction;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -35,7 +35,7 @@ public class DialogStoreProviderTest {
     Interaction interaction;
     private DialogStoreProvider dialogStoreProvider;
 
-    @Before
+    @BeforeEach
     public void setup(){
 
         MockitoAnnotations.initMocks(this);

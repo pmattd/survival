@@ -4,8 +4,8 @@ import static org.fest.assertions.Assertions.assertThat;
 
 import core.area.supplies.SupplyCache;
 import core.area.travel.Direction;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -22,7 +22,7 @@ public class TemporaryLocationTest {
 	@Mock
 	SupplyCache supplies;
 
-	@Before
+	@BeforeEach
 	public void setup(){
 		MockitoAnnotations.initMocks(this);
 		this.temporaryLocation = new TemporaryLocation("blah",back,onwards,supplies);

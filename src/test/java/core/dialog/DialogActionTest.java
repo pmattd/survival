@@ -2,8 +2,8 @@ package core.dialog;
 
 import core.gamestate.GameStateMachine;
 import core.gamestate.states.LocationState;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -31,7 +31,7 @@ public class DialogActionTest {
     @Mock
     LocationState locationState;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         dialogAction = new DialogAction(currentInteraction,interactionOption, gameStateMachine, locationState);

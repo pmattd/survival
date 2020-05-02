@@ -5,8 +5,8 @@ import core.combat.HostileGroup;
 import core.config.xml.narrative.interaction.CombatConfig;
 import core.config.xml.narrative.interaction.TextConfig;
 import core.dialog.Interaction;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -42,7 +42,7 @@ public class CombatInteractionFactoryTest {
     @Mock
     private TextConfig textConfig;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         combatInteractionFactory = new CombatInteractionFactory(textFactory,hostileGroupStore, startCombatOptionFactory);

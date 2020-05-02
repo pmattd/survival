@@ -2,8 +2,8 @@ package core.config.builder;
 
 import core.config.xml.narrative.interaction.TextConfig;
 import core.translations.Translations;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -24,7 +24,7 @@ public class TextFactoryTest {
     @Mock
     TextConfig textConfig;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         textFactory = new TextFactory(translations);

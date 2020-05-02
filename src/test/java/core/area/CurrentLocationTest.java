@@ -1,7 +1,7 @@
 package core.area;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -20,7 +20,7 @@ public class CurrentLocationTest {
 
     private CurrentLocation currentLocation;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         currentLocation = new CurrentLocation();

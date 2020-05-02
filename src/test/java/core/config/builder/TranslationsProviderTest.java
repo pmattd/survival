@@ -5,8 +5,8 @@ import core.config.xml.translations.AllTranslationsConfig;
 import core.config.xml.translations.TranslationConfig;
 import core.translations.Translations;
 import main.providers.TranslationsProvider;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -27,7 +27,7 @@ public class TranslationsProviderTest {
     Configuration configuration;
     private TranslationsProvider translationsProvider;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 

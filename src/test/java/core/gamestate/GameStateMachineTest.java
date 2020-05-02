@@ -4,11 +4,11 @@ import core.boundary.options.CategorisedOptions;
 import core.gamestate.states.DialogState;
 import core.gamestate.states.InitialiseState;
 import core.gamestate.states.StartState;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import sun.plugin.dom.exception.InvalidStateException;
 
 import static org.fest.assertions.Assertions.assertThat;
 import static org.mockito.Mockito.when;
@@ -43,7 +43,7 @@ public class GameStateMachineTest {
 
     private GameStateMachine gameStateMachine;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         gameStateMachine = new GameStateMachine(initialiseState);
@@ -79,10 +79,12 @@ public class GameStateMachineTest {
     }
 
 
-    @Test(expected = InvalidStateException.class)
+    @Test
     public void testRevertToParentStateNoParentStateThrowsException() {
-        gameStateMachine.revertToParentState();
-        gameStateMachine.revertToParentState();
+        Assertions.assertThrows(InvalidGameStateChangeException.class,() -> {
+            gameStateMachine.revertToParentState();
+            gameStateMachine.revertToParentState();
+        });
     }
 
 

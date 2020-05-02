@@ -6,12 +6,13 @@ import core.area.travel.TravelActionFactory;
 import core.boundary.options.ExecutableOption;
 import core.boundary.options.OptionList;
 import core.config.builder.travel.TravelOptionsFactory;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import static com.google.inject.internal.util.$Lists.newArrayList;
+import java.util.Arrays;
+
 import static org.fest.assertions.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
@@ -28,7 +29,7 @@ public class TravelOptionsFactoryTest {
     Direction direction;
     private TravelOptionsFactory travelOptionsFactory;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         travelOptionsFactory = new TravelOptionsFactory(travelActionFactory);
@@ -37,7 +38,7 @@ public class TravelOptionsFactoryTest {
 
 	@Test
 	public void testBuildTravelOptions(){
-		when(area.getDirections()).thenReturn(newArrayList(direction));
+		when(area.getDirections()).thenReturn(Arrays.asList(direction));
 		when(direction.getText()).thenReturn("directionText");
 		OptionList<ExecutableOption> options = travelOptionsFactory.buildTravelOptions(area);
 

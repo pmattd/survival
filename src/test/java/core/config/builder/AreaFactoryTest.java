@@ -10,8 +10,9 @@ import java.util.Collections;
 
 import core.area.scavenge.ScavengeLocationOptionsFactory;
 import core.config.builder.travel.DirectionBuilder;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -62,7 +63,7 @@ public class AreaFactoryTest {
 	private ScavengeLocationOptionsFactory scavengeLocationOptionsFactory;
 
 
-	@Before
+	@BeforeEach
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
 		areaFactory = new AreaFactory(directionBuilder, textFactory, locationFactory, scavengeLocationOptionsFactory);
@@ -99,10 +100,11 @@ public class AreaFactoryTest {
 
 	}
 
-	@Test(expected = ConfigBuildException.class)
+	@Test
 	public void testBuildNoDirectionsNoLocations() throws Exception {
+		Assertions.assertThrows(ConfigBuildException.class,() ->{
 		when(areaConfig.getLocations()).thenReturn(Collections.emptyList());
-		areaFactory.build(areaConfig);
+		areaFactory.build(areaConfig);});
 
 	}
 

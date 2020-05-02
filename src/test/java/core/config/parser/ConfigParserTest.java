@@ -8,8 +8,8 @@ import java.util.List;
 import core.config.xml.hostiles.GroupMemberConfig;
 import core.config.xml.hostiles.HostileConfig;
 import core.config.xml.hostiles.HostileGroupConfig;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import core.config.xml.Configuration;
 import core.config.xml.areas.AreaConfig;
@@ -33,7 +33,7 @@ public class ConfigParserTest {
     File hostilesFile;
 
     Configuration configuration;
-    @Before
+    @BeforeEach
     public void setup() {
         parser = new ConfigParser();
         classLoader = getClass().getClassLoader();

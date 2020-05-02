@@ -2,8 +2,8 @@ package core.area;
 
 import core.area.scavenge.ScavengeLocationAction;
 import core.area.travel.Direction;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -25,7 +25,7 @@ public class AreaTest {
     ScavengeLocationAction scavengeLocationAction;
     private Area area;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         area = new Area("desc",asList(direction));

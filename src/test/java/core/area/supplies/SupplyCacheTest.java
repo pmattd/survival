@@ -1,7 +1,7 @@
 package core.area.supplies;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
 import static org.fest.assertions.Assertions.assertThat;
@@ -20,7 +20,7 @@ public class SupplyCacheTest {
     @Mock
     Supplies supplies;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         supplyCache = new SupplyCache(supplies,noSupplies);
     }

@@ -1,7 +1,7 @@
 package core.dialog;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.fest.assertions.Assertions.assertThat;
 
@@ -12,7 +12,7 @@ public class NoInteractionTest {
 
     private NoInteraction noInteraction;
 
-    @Before
+    @BeforeEach
     public void setup(){
         noInteraction = new NoInteraction();
     }

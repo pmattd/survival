@@ -6,7 +6,7 @@ import core.boundary.options.CategorisedOptions;
 import core.gamestate.states.GameState;
 import core.gamestate.states.InitialiseState;
 import org.slf4j.LoggerFactory;
-import sun.plugin.dom.exception.InvalidStateException;
+
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -40,7 +40,7 @@ public class GameStateMachine {
 
     public void revertToParentState() {
         if (stateStack.isEmpty()) {
-            throw new InvalidStateException("cannot revert to parent no states in stack");
+            throw new InvalidGameStateChangeException("cannot revert to parent no states in stack");
         }
         stateStack.pop();
     }

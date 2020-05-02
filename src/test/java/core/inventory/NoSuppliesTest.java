@@ -4,8 +4,8 @@ import static org.fest.assertions.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
 import core.area.supplies.NoSupplies;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -19,7 +19,7 @@ public class NoSuppliesTest {
 	@Mock
 	Translations translations;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
 		when(translations.getTranslation(TranslationConstants.SCAVENGE_NO_SUPPLIES)).thenReturn("no supplies");

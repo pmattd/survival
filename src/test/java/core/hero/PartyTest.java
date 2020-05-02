@@ -4,8 +4,8 @@ import core.area.scavenge.RetrieveSuppliesAction;
 import core.area.scavenge.RetrieveSuppliesActionFactory;
 import core.area.supplies.SupplyCache;
 import core.area.supplies.SupplyCacheFactory;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
@@ -40,7 +40,7 @@ public class PartyTest {
     @Mock
     RetrieveSuppliesAction retrieveSuppliesAction;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         this.party = new Party(inventory,retrieveSuppliesActionFactory, supplyCacheFactory);

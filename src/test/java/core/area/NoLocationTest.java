@@ -1,7 +1,8 @@
 package core.area;
 
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.fest.assertions.Assertions.assertThat;
 
@@ -13,7 +14,7 @@ public class NoLocationTest {
 
     private NoLocation noLocation;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         noLocation = new NoLocation();
     }

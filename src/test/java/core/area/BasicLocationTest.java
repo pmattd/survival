@@ -6,8 +6,8 @@ import core.area.travel.ArrivalAction;
 import core.area.travel.Direction;
 import core.boundary.options.ExecutableOption;
 import core.boundary.options.OptionList;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -34,7 +34,7 @@ public class BasicLocationTest {
     @Mock
     private Direction direction;
 
-    @Before
+    @BeforeEach
     public void setup(){
         MockitoAnnotations.initMocks(this);
         location = new BasicLocation("prison","prisondesc", area, supplyCache, arrivalAction, travelOptions, relocationOptionsFactory);

@@ -3,8 +3,8 @@ package core.config.builder;
 import core.combat.Hostile;
 import core.config.xml.hostiles.GroupMemberConfig;
 import core.config.xml.hostiles.HostileConfig;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -25,7 +25,7 @@ public class HostileFactoryTest {
     @Mock
     private HostileConfig hostileConfig;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         hostileFactory = new HostileFactory();

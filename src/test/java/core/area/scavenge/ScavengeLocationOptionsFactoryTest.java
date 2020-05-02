@@ -5,8 +5,8 @@ import core.boundary.options.ExecutableOption;
 import core.gamestate.GameStateMachine;
 import core.gamestate.states.specialized.InventorySpecializedState;
 import core.hero.Inventory;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -37,7 +37,7 @@ public class ScavengeLocationOptionsFactoryTest {
     @Mock
     private Location location2;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         scavengeLocationOptionsFactory = new ScavengeLocationOptionsFactory(gameStateMachine, inventorySpecializedState, inventory);

@@ -5,7 +5,8 @@ import core.boundary.options.OptionList;
 import core.config.xml.narrative.interaction.ChoiceConfig;
 import core.config.xml.narrative.interaction.OptionConfig;
 import core.config.xml.narrative.interaction.TextConfig;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -47,7 +48,7 @@ public class ChoiceBuilderTest {
     @Mock
     InteractionOptionFactory interactionOptionFactory;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         choiceInteractionFactory = new ChoiceInteractionFactory(textFactory, dialogOptionsFactory, interactionOptionFactory);

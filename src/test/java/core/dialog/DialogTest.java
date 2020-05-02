@@ -3,8 +3,8 @@ package core.dialog;
 import core.gamestate.GameStateMachine;
 import core.boundary.options.ExecutableOption;
 import core.boundary.options.OptionList;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -24,7 +24,7 @@ public class DialogTest {
     Interaction interaction;
 
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         dialog = new Dialog("id",interaction);

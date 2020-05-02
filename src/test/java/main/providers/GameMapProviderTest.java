@@ -7,8 +7,9 @@ import core.config.builder.ConfigBuildException;
 import core.config.xml.Configuration;
 import core.config.xml.areas.AreaConfig;
 import core.config.xml.areas.AreaMapConfig;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -45,7 +46,7 @@ public class GameMapProviderTest {
     @Mock
     private Location location;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         when(configuration.getAreaMapConfig()).thenReturn(areaMapConfig);
@@ -56,11 +57,13 @@ public class GameMapProviderTest {
 
     }
 
-    @Test(expected = ConfigBuildException.class)
+    @Test
     public void testGet_noStartLocation() throws Exception {
         when(areaMapConfig.getLocationStart()).thenReturn(null);
 
-        gameMapProvider = new GameMapProvider(configuration, areaFactory);
+        Assertions.assertThrows(ConfigBuildException.class , () -> {
+            new GameMapProvider(configuration, areaFactory);
+        });
     }
 
 

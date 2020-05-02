@@ -6,7 +6,8 @@ import static com.google.common.collect.Lists.newArrayList;
 
 import java.util.List;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -30,7 +31,7 @@ public class DialogHandlerTest {
     private Interaction nextInteraction;
 
 
-    @Before
+    @BeforeEach
     public void setUp(){
         MockitoAnnotations.initMocks(this);
         dialogStore = new DialogStore(subNarratives);

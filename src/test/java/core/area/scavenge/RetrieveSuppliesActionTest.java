@@ -5,8 +5,9 @@ import core.area.supplies.SupplyCache;
 import core.gamestate.GameStateMachine;
 import core.gamestate.states.LocationState;
 import core.hero.Inventory;
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -36,7 +37,7 @@ public class RetrieveSuppliesActionTest {
     @Mock
     LocationState locationState;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         retrieveSuppliesAction = new RetrieveSuppliesAction(gameStateMachine,inventory,supplyCache, locationState);

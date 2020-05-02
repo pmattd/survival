@@ -3,8 +3,9 @@ package core.config.builder;
 import static org.fest.assertions.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -50,7 +51,7 @@ public class InteractionFactoryTest {
     private CombatConfig combatConfig;
 
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         interactionFactory = new InteractionFactory(simpleTextInteractionBuilder, choiceInteractionFactory, new NoInteraction(), combatInteractionFactory);
@@ -63,9 +64,10 @@ public class InteractionFactoryTest {
 
     }
 
-    @Test(expected=ConfigBuildException.class)
+    @Test
     public void testBuildEmptyInteraction() throws Exception {
-        interactionFactory.build(interactionConfig);
+        Assertions.assertThrows(ConfigBuildException.class,() ->{
+        interactionFactory.build(interactionConfig);});
     }
 
     @Test

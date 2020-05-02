@@ -49,6 +49,7 @@ public class ConfigParser {
 
         } catch (JAXBException e) {
             e.printStackTrace();
+            throw new RuntimeException("failed to parse configuration file" ,e);
         }
         return configurationObj;
     }
