@@ -23,19 +23,20 @@ public class CombatManager {
         characters.addAll(partyA);
         characters.addAll(partyB);
 
-        initiativeStream = new InitiativeStream(characters);
+        initiativeStream = new InitiativeStream(characters, 12);
     }
 
-    public void doTurn(){
+    public void doTurn() {
 
-        Character character = initiativeStream.getNext();
+        Character character = initiativeStream.popNext();
+
         //build attack options
         //select Attack
         //select Target
         //do attack
         //book keeping;
-            //recalculate initiative stream
-            //add/remove characters
+        //recalculate initiative stream
+        //add/remove characters
 
 
     }
