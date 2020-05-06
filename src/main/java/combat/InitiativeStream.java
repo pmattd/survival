@@ -8,17 +8,20 @@ import java.util.stream.Stream;
 public class InitiativeStream {
 
     private final List<Character> characters;
-    private List<CharacterSlot> currentStream;
+    private final List<CharacterSlot> currentStream;
 
     public InitiativeStream(List<Character> characters, int turnsAhead) {
         this.characters = characters;
         currentStream = calculateInitiativeStream(1, turnsAhead);
     }
 
-    public Character popNext() {
-        Character nextCharacter = currentStream.get(0).character;
-        this.currentStream = calculateInitiativeStream(currentStream.get(0).slot + 1, currentStream.size());
-        return nextCharacter;
+    private InitiativeStream(List<Character> characters, int turnsAhead, int currentSlot) {
+        this.characters = characters;
+        currentStream = calculateInitiativeStream(currentSlot + 1, turnsAhead);
+    }
+
+    public InitiativeStream next() {
+        return new InitiativeStream(characters, currentStream.size(), currentStream.get(0).slot);
     }
 
     public List<Character> getNextCharacters(int maxTurns) {
@@ -46,23 +49,7 @@ public class InitiativeStream {
         return order;
     }
 
-    public List<Character> calculateStream(int startingInitiativeSlot, int maxTurns) {
-        var initiativeOrder = new ArrayList<Character>();
-        var charactersInStream = 0;
-
-        while (charactersInStream < maxTurns) {
-            for (Character character : characters) {
-                if (startingInitiativeSlot % character.getInitiative() == 0) {
-                    initiativeOrder.add(character);
-                    charactersInStream++;
-                }
-            }
-            startingInitiativeSlot++;
-        }
-        return initiativeOrder;
-    }
-
-    class CharacterSlot {
+    private class CharacterSlot {
         public final Character character;
         public final int slot;
 
@@ -71,7 +58,4 @@ public class InitiativeStream {
             this.slot = slot;
         }
     }
-
-    //didn't increament starting slot
-    //mod operation wrong way round
 }

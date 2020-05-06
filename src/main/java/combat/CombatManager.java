@@ -1,43 +1,51 @@
 package combat;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class CombatManager {
 
-
-    private final List<Character> partyA;
-    private final List<Character> partyB;
+    private final CombatGroup partyA;
+    private final CombatGroup partyB;
     private final InitiativeStream initiativeStream;
 
     private int turn;
 
-
-    public CombatManager(List<Character> partyA, List<Character> partyB) {
-        this.partyA = Collections.unmodifiableList(partyA);
-        this.partyB = Collections.unmodifiableList(partyB);
-
+    public CombatManager(CombatGroup partyA, CombatGroup partyB, InitiativeStream initiativeStream) {
+        this.partyA = partyA;
+        this.partyB = partyB;
 
         List<Character> characters = new ArrayList<>();
-        characters.addAll(partyA);
-        characters.addAll(partyB);
+        characters.addAll(partyA.getCharacters());
+        characters.addAll(partyB.getCharacters());
 
-        initiativeStream = new InitiativeStream(characters, 12);
+        this.initiativeStream = initiativeStream;
     }
 
-    public void doTurn() {
+    public CombatGroup getTargetGroup(Character character) {
+        if (partyA.contains(character)) {
+            return partyB;
+        }
+        return partyA;
+    }
 
-        Character character = initiativeStream.popNext();
+    public CombatManager doTurn() {
 
-        //build attack options
-        //select Attack
+        Character character = initiativeStream.getNextCharacters(1).get(0);
+        CombatAction combatAction = character.getCombatActions().get(0);
+        Character target = getTargetGroup(character).getRandom();
+        Character newTarget = target.doDamage(combatAction.getDamage());
+
+        //replace the target with the new target
+        return new CombatManager(partyA, partyB, initiativeStream.next());
+
+        //get target
+
         //select Target
         //do attack
         //book keeping;
         //recalculate initiative stream
         //add/remove characters
-
 
     }
 }

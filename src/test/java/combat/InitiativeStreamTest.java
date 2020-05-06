@@ -9,9 +9,9 @@ import static org.fest.assertions.Assertions.assertThat;
 
 public class InitiativeStreamTest {
 
-    Character a = new Character(3);
-    Character b = new Character(5);
-    Character c = new Character(3);
+    Character a = new Character(3, null, 0);
+    Character b = new Character(5, null, 0);
+    Character c = new Character(3, null, 0);
 
     @Test
     public void testInitiativeStream() {
@@ -35,17 +35,10 @@ public class InitiativeStreamTest {
     }
 
     @Test
-    public void testPop() {
+    public void testNext() {
         InitiativeStream initiativeStream = new InitiativeStream(List.of(a, b), 3);
-        var nextCharacter = initiativeStream.popNext();
-        assertThat(nextCharacter).isEqualTo(a);
-    }
-
-    @Test
-    public void testPop_resultingStream() {
-        InitiativeStream initiativeStream = new InitiativeStream(List.of(a, b), 3);
-        initiativeStream.popNext();
-        assertThat(initiativeStream.getNextCharacters(3)).containsExactly(b, a, a);
+        InitiativeStream nextStream = initiativeStream.next();
+        assertThat(nextStream.getNextCharacters(3)).containsExactly(b, a, a);
     }
 
 }
